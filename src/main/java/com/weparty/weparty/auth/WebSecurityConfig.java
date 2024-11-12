@@ -37,7 +37,7 @@ public class WebSecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/public/**").permitAll()        // Permite acesso a rotas públicas
                 .requestMatchers("/admin/**").hasRole("ADMIN")    // Apenas ADMIN pode acessar /admin
-                .requestMatchers("/user/**").hasAnyRole("USER", "USER")      // Apenas USER pode acessar /user
+                .requestMatchers("/user/**").hasAnyRole("USER", "ADMIN")      // Apenas USER pode acessar /user
                 .anyRequest().authenticated()                     // Qualquer outra requisição requer autenticação
             )
             .formLogin(form -> form
